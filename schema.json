@@ -1,0 +1,122 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "version": {
+            "type": "string"
+        },
+        "default": {
+            "type": "object",
+            "properties": {
+                "global": {
+                    "type": "object",
+                    "properties": {
+                        "parameters": {
+                            "type": "object",
+                            "properties": {
+                                "stack_name": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "stack_name"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "parameters"
+                    ]
+                },
+                "deploy": {
+                    "type": "object",
+                    "properties": {
+                        "parameters": {
+                            "type": "object",
+                            "properties": {
+                                "stack_name": {
+                                    "type": "string"
+                                },
+                                "s3_bucket": {
+                                    "type": "string"
+                                },
+                                "s3_prefix": {
+                                    "type": "string"
+                                },
+                                "image_repositories": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "region": {
+                                    "type": "string"
+                                },
+                                "confirm_changeset": {
+                                    "type": "boolean"
+                                },
+                                "capabilities": {
+                                    "type": "string"
+                                },
+                                "tags": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "stack_name",
+                                "s3_bucket",
+                                "s3_prefix",
+                                "image_repositories",
+                                "region",
+                                "confirm_changeset",
+                                "capabilities",
+                                "tags"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "parameters"
+                    ]
+                },
+                "build": {
+                    "type": "object",
+                    "properties": {
+                        "parameters": {
+                            "type": "object",
+                            "properties": {
+                                "container_env_var": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "container_env_var_file": {
+                                    "type": "string"
+                                },
+                                "no_beta_features": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "container_env_var",
+                                "container_env_var_file",
+                                "no_beta_features"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "parameters"
+                    ]
+            },
+            "required": [
+                "global",
+                "deploy",
+                "build"
+            ]
+        }
+    },
+    "required": [
+        "version",
+        "default"
+    ]
+}
+
